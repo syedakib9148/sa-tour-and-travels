@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SA Tours & Travel - Reliable local taxi, airport drops, and outstation travel. Affordable and safe.">
+    <title>SA Tours & Travel | Reliable Local Taxi Service</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- THEME SETTINGS --- */
+        :root {
+            --primary: #0f172a; /* Dark Navy - Professional */
+            --accent: #f59e0b;  /* Taxi Gold - Action */
+            --white: #ffffff;
+            --light-bg: #f8fafc;
+            --text-dark: #333333;
+            --text-light: #64748b;
+            --whatsapp: #25D366;
+            --radius: 8px;
+            --shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+        }
+
+        /* --- RESET & BASICS --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; }
+        body { background-color: var(--light-bg); color: var(--text-dark); line-height: 1.6; padding-bottom: 70px; /* Space for mobile bar */ }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        img { width: 100%; display: block; border-radius: var(--radius); }
+        ul { list-style: none; }
+
+        /* --- BUTTONS --- */
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 24px; border-radius: 50px; font-weight: 600; cursor: pointer; border: none; }
+        .btn-primary { background: var(--primary); color: var(--white); }
+        .btn-accent { background: var(--accent); color: var(--primary); }
+        .btn-whatsapp { background: var(--whatsapp); color: var(--white); }
+        .btn:hover { opacity: 0.9; transform: translateY(-2px); }
+
+        /* --- HEADER --- */
+        header { background: var(--white); box-shadow: var(--shadow); position: sticky; top: 0; z-index: 1000; }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary); }
+        .logo span { color: var(--accent); }
+        
+        .nav-links { display: flex; gap: 20px; }
+        .nav-links a { font-weight: 500; font-size: 0.95rem; }
+        .nav-links a:hover { color: var(--accent); }
+        
+        .mobile-menu-btn { display: none; font-size: 1.5rem; cursor: pointer; }
+
+        /* --- HERO SECTION --- */
+        .hero { 
+            background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), 
+            url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');
+            background-size: cover; background-position: center; 
+            color: var(--white); text-align: center; padding: 80px 20px; 
+        }
+        .hero h1 { font-size: 2.8rem; margin-bottom: 10px; line-height: 1.2; }
+        .hero p { font-size: 1.2rem; margin-bottom: 30px; color: #cbd5e1; }
+        .hero-btns { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+
+        /* --- SECTIONS GENERAL --- */
+        .section { padding: 60px 20px; max-width: 1100px; margin: 0 auto; }
+        .section-title { text-align: center; margin-bottom: 40px; }
+        .section-title h2 { font-size: 2rem; color: var(--primary); margin-bottom: 10px; }
+        .section-title p { color: var(--text-light); }
+
+        /* --- SERVICES GRID --- */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .service-card { background: var(--white); padding: 30px; text-align: center; border-radius: var(--radius); box-shadow: var(--shadow); transition: 0.3s; }
+        .service-card:hover { transform: translateY(-5px); }
+        .icon-box { width: 60px; height: 60px; background: #eef2ff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: var(--primary); font-size: 1.5rem; }
+        .service-card h3 { margin-bottom: 10px; }
+
+        /* --- VEHICLE SECTION --- */
+        .vehicle-box { background: var(--white); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); display: flex; flex-wrap: wrap; }
+        .vehicle-img { flex: 1; min-width: 300px; }
+        .vehicle-img img { height: 100%; object-fit: cover; }
+        .vehicle-info { flex: 1; padding: 40px; min-width: 300px; }
+        .features-list { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
+        .feature { display: flex; align-items: center; gap: 10px; font-size: 0.95rem; }
+        .feature i { color: var(--accent); }
+
+        /* --- PRICING & WHY US --- */
+        .pricing-banner { background: var(--primary); color: var(--white); padding: 40px; border-radius: var(--radius); text-align: center; margin-bottom: 60px; }
+        .why-us-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .why-item { text-align: center; }
+        .why-item i { font-size: 2rem; color: var(--accent); margin-bottom: 15px; }
+
+        /* --- CONTACT FORM --- */
+        .contact-section { background: var(--white); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: 600; font-size: 0.9rem; }
+        .form-control { width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 1rem; }
+        .contact-info { margin-top: 30px; text-align: center; border-top: 1px solid #eee; padding-top: 20px; }
+
+        /* --- FOOTER --- */
+        footer { background: #0f172a; color: #94a3b8; text-align: center; padding: 30px 20px; margin-top: 40px; }
+
+        /* --- STICKY MOBILE BAR --- */
+        .mobile-bar { 
+            position: fixed; bottom: 0; left: 0; width: 100%; background: var(--white); 
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1); z-index: 2000; display: flex; 
+        }
+        .bar-btn { flex: 1; padding: 15px; text-align: center; font-weight: 700; font-size: 1rem; color: var(--white); }
+        .bar-call { background: var(--primary); }
+        .bar-wa { background: var(--whatsapp); }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: var(--white); flex-direction: column; padding: 20px; box-shadow: 0 5px 10px rgba(0,0,0,0.1); text-align: center; }
+            .nav-links.active { display: flex; }
+            .mobile-menu-btn { display: block; }
+            .hero h1 { font-size: 2rem; }
+            .vehicle-box { flex-direction: column; }
+            body { padding-bottom: 60px; } /* Footer space */
+        }
+        @media (min-width: 769px) {
+            .mobile-bar { display: none; }
+            body { padding-bottom: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">SA <span>Tours</span></div>
+            <div class="mobile-menu-btn" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home" onclick="toggleMenu()">Home</a></li>
+                    <li><a href="#services" onclick="toggleMenu()">Services</a></li>
+                    <li><a href="#vehicle" onclick="toggleMenu()">The Car</a></li>
+                    <li><a href="#contact" onclick="toggleMenu()">Book Now</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <h1>SA Tours & Travel</h1>
+        <p>Comfortable • Reliable • Affordable Travel</p>
+        <div class="hero-btns">
+            <a href="tel:+919999999999" class="btn btn-accent">
+                <i class="fas fa-phone-alt"></i> Call Now
+            </a>
+            <a href="#contact" class="btn btn-whatsapp">
+                <i class="fab fa-whatsapp"></i> Book via WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <section id="services" class="section">
+        <div class="section-title">
+            <h2>Our Services</h2>
+            <p>Reliable travel solutions for all your needs.</p>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="icon-box"><i class="fas fa-plane-departure"></i></div>
+                <h3>Airport Transfers</h3>
+                <p>On-time pickup and drop to the airport. Never miss a flight.</p>
+            </div>
+            <div class="service-card">
+                <div class="icon-box"><i class="fas fa-city"></i></div>
+                <h3>Local City Rides</h3>
+                <p>Hourly rental packages for shopping, office, or city visits.</p>
+            </div>
+            <div class="service-card">
+                <div class="icon-box"><i class="fas fa-route"></i></div>
+                <h3>Outstation Trips</h3>
+                <p>Comfortable long-distance travel with an experienced driver.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="vehicle" class="section">
+        <div class="vehicle-box">
+            <div class="vehicle-img">
+                <img src="C:\Users\SYED AKIB\Desktop\SA tours and travel\images\image.png" alt="Car Interior">
+            </div>
+            <div class="vehicle-info">
+                <h2>Our Premium Vehicle</h2>
+                <p>We operate a single, owner-driven vehicle to ensure maximum hygiene, safety, and personal attention to every passenger.</p>
+                
+                <div class="features-list">
+                    <div class="feature"><i class="fas fa-check-circle"></i> Dzire / Sedan</div>
+                    <div class="feature"><i class="fas fa-check-circle"></i> AC Climate Control</div>
+                    <div class="feature"><i class="fas fa-check-circle"></i> 4+1 Seating</div>
+                    <div class="feature"><i class="fas fa-check-circle"></i> Daily Sanitization</div>
+                    <div class="feature"><i class="fas fa-check-circle"></i> Luggage Space</div>
+                    <div class="feature"><i class="fas fa-check-circle"></i> Music System</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="pricing-banner">
+            <h3>Flexible & Affordable Pricing</h3>
+            <p style="margin: 15px 0;">We offer competitive <strong>Per Km</strong> rates and fixed daily packages.</p>
+            <a href="tel:+919999999999" class="btn btn-white" style="background:white; color:var(--primary);">
+                <i class="fas fa-phone"></i> Call for Best Quote
+            </a>
+        </div>
+
+        <div class="section-title">
+            <h2>Why Choose SA Tours?</h2>
+        </div>
+        <div class="why-us-grid">
+            <div class="why-item">
+                <i class="fas fa-user-shield"></i>
+                <h4>Safety First</h4>
+                <p>Experienced & Verified Driver</p>
+            </div>
+            <div class="why-item">
+                <i class="fas fa-clock"></i>
+                <h4>Punctual</h4>
+                <p>Always on time, every time</p>
+            </div>
+            <div class="why-item">
+                <i class="fas fa-wallet"></i>
+                <h4>Best Rates</h4>
+                <p>No hidden charges</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="section-title">
+            <h2>Book Your Ride</h2>
+            <p>Send details via WhatsApp for instant confirmation.</p>
+        </div>
+        
+        <div class="contact-section">
+            <form id="bookingForm" onsubmit="sendToWhatsApp(event)">
+                <div class="form-group">
+                    <label>Your Name</label>
+                    <input type="text" id="name" class="form-control" placeholder="Enter name" required>
+                </div>
+                <div class="form-group">
+                    <label>Trip Type</label>
+                    <select id="type" class="form-control">
+                        <option value="Local City Ride">Local City Ride</option>
+                        <option value="Airport Drop/Pickup">Airport Drop/Pickup</option>
+                        <option value="Outstation">Outstation Trip</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Pickup Date </label>
+                    <input type="datetime-local" id="date" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Pickup Location</label>
+                    <input type="text" id="location" class="form-control" placeholder="e.g. Indiranagar, Airport" required>
+                </div>
+                
+                <button type="submit" class="btn btn-whatsapp" style="width: 100%; margin-top: 10px;">
+                    <i class="fab fa-whatsapp"></i> Send Request on WhatsApp
+                </button>
+            </form>
+
+            <div class="contact-info">
+                <p><i class="fas fa-map-marker-alt" style="color:var(--accent)"></i> <strong>Based in:</strong> [Your City Name]</p>
+                <p><i class="fas fa-clock" style="color:var(--accent)"></i> <strong>Hours:</strong> 24/7 Available</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 SA Tours & Travel. All rights reserved.</p>
+        <p>Your Trusted Local Travel Partner.</p>
+    </footer>
+
+    <div class="mobile-bar">
+        <a href="tel:+919999999999" class="bar-btn bar-call">
+            <i class="fas fa-phone-alt"></i> Call Now
+        </a>
+        <a href="https://wa.me/919999999999?text=Hi, I want to book a taxi." class="bar-btn bar-wa">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+    </div>
+
+    <script>
+        // Toggle Mobile Menu
+        function toggleMenu() {
+            const nav = document.getElementById('navLinks');
+            nav.classList.toggle('active');
+        }
+
+        // WhatsApp Logic
+        function sendToWhatsApp(e) {
+            e.preventDefault();
+            
+            // Get values
+            const name = document.getElementById('name').value;
+            const type = document.getElementById('type').value;
+            const date = document.getElementById('date').value;
+            const location = document.getElementById('location').value;
+            
+            // YOUR PHONE NUMBER HERE (Country code + Number, no + sign)
+            const ownerPhone = "919999999999"; 
+
+            // Create message
+            const message = `*New Booking Enquiry - SA Tours*%0A%0A*Name:* ${name}%0A*Type:* ${type}%0A*Date:* ${date}%0A*Pickup:* ${location}%0A%0APlease confirm availability and price.`;
+
+            // Open WhatsApp
+            window.open(`https://wa.me/${ownerPhone}?text=${message}`, '_blank');
+        }
+    </script>
+</body>
+</html>
